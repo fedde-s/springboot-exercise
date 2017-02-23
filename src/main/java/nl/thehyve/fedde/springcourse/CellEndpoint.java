@@ -1,6 +1,7 @@
 package nl.thehyve.fedde.springcourse;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -24,6 +25,12 @@ public class CellEndpoint {
     public Response list() {
         Iterable<Cell> payload = cellRepository.findAll();
         return Response.ok(payload).build();
+    }
+
+    @POST
+    public Response add(Cell cell) {
+        cells.add(cell);
+        return Response.ok().build();
     }
 
 }
