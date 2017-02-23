@@ -1,4 +1,4 @@
-package nl.thehyve;
+package nl.thehyve.fedde.springcourse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
