@@ -18,25 +18,27 @@ import nl.thehyve.fedde.springcourse.model.Chromosome;
 @Produces(MediaType.APPLICATION_JSON)
 public class CellEndpoint {
 
-    @GET
-    public Response list() {
+    private List<Cell> cells;
 
-        List<Cell> payload = new ArrayList<Cell>();
+    public CellEndpoint() {
+        cells = new ArrayList<Cell>();
 
-        Chromosome chromosome1 = new Chromosome("ACGT");
-        Chromosome chromosome2 = new Chromosome("AGGT");
-        Chromosome chromosome3 = new Chromosome("TCATAAG");
+        Chromosome chromosome1 = new Chromosome("TCATAAG");
+        Chromosome chromosome2Hap1 = new Chromosome("ACGT");
+        Chromosome chromosome2Hap2 = new Chromosome("AGGT");
 
         Cell first = new Cell();
-        first.setGenome(new Chromosome[]{chromosome1, chromosome3});
-        payload.add(first);
+        first.setGenome(new Chromosome[]{chromosome1, chromosome2Hap1});
+        cells.add(first);
 
         Cell second = new Cell();
-        second.setGenome(new Chromosome[]{chromosome2, chromosome3});
-        payload.add(second);
+        second.setGenome(new Chromosome[]{chromosome1, chromosome2Hap2});
+        cells.add(second);
+    }
 
-        return Response.ok(payload).build();
-
+    @GET
+    public Response list() {
+        return Response.ok(cells).build();
     }
 
 }
