@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import nl.thehyve.fedde.springcourse.model.Cell;
 import nl.thehyve.fedde.springcourse.model.Chromosome;
@@ -17,6 +18,9 @@ import nl.thehyve.fedde.springcourse.model.Chromosome;
 @Path("/cells")
 @Produces(MediaType.APPLICATION_JSON)
 public class CellEndpoint {
+
+    @Autowired
+    private CellRepository cellRepository;
 
     private List<Cell> cells;
 
@@ -38,7 +42,8 @@ public class CellEndpoint {
 
     @GET
     public Response list() {
-        return Response.ok(cells).build();
+        Iterable<Cell> payload = cellRepository.findAll();
+        return Response.ok(payload).build();
     }
 
 }
