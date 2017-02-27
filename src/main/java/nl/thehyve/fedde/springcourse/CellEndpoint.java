@@ -28,11 +28,11 @@ public class CellEndpoint {
         Chromosome chromosome2Hap2 = new Chromosome("AGGT");
 
         Cell first = new Cell();
-        first.setGenome(new Chromosome[]{chromosome1, chromosome2Hap1});
+        first.setGenome(chromosome2Hap1);
         cells.add(first);
 
         Cell second = new Cell();
-        second.setGenome(new Chromosome[]{chromosome1, chromosome2Hap2});
+        second.setGenome(chromosome2Hap2);
         cells.add(second);
     }
 
