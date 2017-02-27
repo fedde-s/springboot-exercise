@@ -18,6 +18,7 @@ public class Cell implements Serializable {
     @OneToOne
     private Chromosome genome;
 
+    @SuppressWarnings("unused")
     private Cell() {
     }
 

@@ -17,6 +17,7 @@ public class Chromosome implements Serializable {
     private long id;
     private String sequence;
 
+    @SuppressWarnings("unused")
     private Chromosome() {
     }
 
