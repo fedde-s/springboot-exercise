@@ -9,7 +9,7 @@ import nl.thehyve.fedde.springcourse.model.Chromosome;
 import nl.thehyve.fedde.springcourse.persistence.CellRepository;
 import nl.thehyve.fedde.springcourse.persistence.ChromosomeRepository;
 
-@Component
+//@Component
 public class ExampleLoadingRunner implements CommandLineRunner {
 
     @Autowired
