@@ -17,7 +17,7 @@ public class Chromosome implements Serializable {
     private long id;
     private String sequence;
 
-    public Chromosome() {
+    private Chromosome() {
     }
 
     public Chromosome(String sequence) {

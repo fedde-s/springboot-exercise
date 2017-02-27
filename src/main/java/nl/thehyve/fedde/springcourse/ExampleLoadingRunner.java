@@ -27,11 +27,10 @@ public class ExampleLoadingRunner implements CommandLineRunner {
         chromRepository.save(chromosome1Hap1);
         chromRepository.save(chromosome1Hap2);
 
-        Cell first = new Cell();
-        first.setGenome(chromosome1Hap1);
+        Cell first = new Cell(chromosome1Hap1);
         cellRepository.save(first);
 
-        Cell second = new Cell();
+        Cell second = new Cell(chromosome1Hap1);
         second.setGenome(chromosome1Hap2);
         cellRepository.save(second);
     }

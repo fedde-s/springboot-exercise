@@ -18,6 +18,13 @@ public class Cell implements Serializable {
     @OneToOne
     private Chromosome genome;
 
+    private Cell() {
+    }
+
+    public Cell(Chromosome genome) {
+        this.genome = genome;
+    }
+
     public long getId() {
         return id;
     }
