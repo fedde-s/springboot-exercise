@@ -1,4 +1,4 @@
-package nl.thehyve.fedde.springcourse;
+package nl.thehyve.fedde.springcourse.persistence;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
