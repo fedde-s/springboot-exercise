@@ -1,5 +1,6 @@
 package nl.thehyve.fedde.springcourse.model;
 
+import java.awt.Color;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,13 +18,16 @@ public class Cell implements Serializable {
     private long id;
     @OneToOne
     private Chromosome genome;
+    private Color color;
+    private String name;
 
     @SuppressWarnings("unused")
     private Cell() {
     }
 
-    public Cell(Chromosome genome) {
+    public Cell(Chromosome genome, Color color) {
         this.genome = genome;
+        this.setColor(color);
     }
 
     public long getId() {
@@ -34,8 +38,25 @@ public class Cell implements Serializable {
         return genome;
     }
 
-    public void setGenome(Chromosome genome) {
+    @SuppressWarnings("unused")
+    private void setGenome(Chromosome genome) {
         this.genome = genome;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

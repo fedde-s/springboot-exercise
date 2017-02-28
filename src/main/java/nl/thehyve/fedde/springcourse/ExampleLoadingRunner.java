@@ -1,5 +1,7 @@
 package nl.thehyve.fedde.springcourse;
 
+import java.awt.Color;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
@@ -29,11 +31,11 @@ public class ExampleLoadingRunner implements CommandLineRunner {
         chromRepository.save(chromosome1Hap1);
         chromRepository.save(chromosome1Hap2);
 
-        Cell first = new Cell(chromosome1Hap1);
+        Cell first = new Cell(chromosome1Hap1, Color.ORANGE);
         cellRepository.save(first);
 
-        Cell second = new Cell(chromosome1Hap1);
-        second.setGenome(chromosome1Hap2);
+        Cell second = new Cell(chromosome1Hap1, Color.CYAN);
+        second.setName("Zacharias");
         cellRepository.save(second);
     }
 
