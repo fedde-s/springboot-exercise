@@ -10,8 +10,11 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.Response.Status;
 
 import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import nl.thehyve.fedde.springcourse.model.Cell;
@@ -20,6 +23,8 @@ import nl.thehyve.fedde.springcourse.service.CellService;
 @Component
 @Path("/cells")
 public class CellEndpoint {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CellEndpoint.class);
 
     @Autowired
     private CellService service;
@@ -40,9 +45,17 @@ public class CellEndpoint {
     @Path("{id}")
     public Response select(@PathParam("id") long id) {
         Cell payload = service.findById(id);
-        return Response
-                .ok(payload)
-                .build();
+        if (payload == null) {
+            LOGGER.debug("Could not find cell with ID {}", id);
+            return Response
+                    .status(Status.NOT_FOUND)
+                    .build();
+        } else {
+            LOGGER.debug("Found cell: {}", payload);
+            return Response
+                    .ok(payload)
+                    .build();
+        }
     }
 
     @POST
