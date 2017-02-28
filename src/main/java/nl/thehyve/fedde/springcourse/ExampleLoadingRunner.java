@@ -2,6 +2,7 @@ package nl.thehyve.fedde.springcourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import nl.thehyve.fedde.springcourse.model.Cell;
@@ -9,7 +10,8 @@ import nl.thehyve.fedde.springcourse.model.Chromosome;
 import nl.thehyve.fedde.springcourse.persistence.CellRepository;
 import nl.thehyve.fedde.springcourse.persistence.ChromosomeRepository;
 
-//@Component
+@Component
+@Profile("test")
 public class ExampleLoadingRunner implements CommandLineRunner {
 
     @Autowired
