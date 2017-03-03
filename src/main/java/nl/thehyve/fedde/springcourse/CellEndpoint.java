@@ -1,6 +1,7 @@
 package nl.thehyve.fedde.springcourse;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -66,6 +67,14 @@ public class CellEndpoint {
                 .created(uriInfo.getAbsolutePathBuilder()
                         .path(Long.toString(cell.getId()))
                         .build())
+                .build();
+    }
+
+    @DELETE
+    public Response dropBySequence() {
+        service.clearAll();
+        return Response
+                .accepted()
                 .build();
     }
 

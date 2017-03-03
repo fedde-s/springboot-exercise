@@ -30,4 +30,8 @@ public class CellService {
         cellRepository.save(cell);
     }
 
+    public void clearAll() {
+        cellRepository.clear();
+    }
+
 }
