@@ -13,7 +13,7 @@ import nl.thehyve.fedde.springcourse.persistence.CellRepository;
 import nl.thehyve.fedde.springcourse.persistence.ChromosomeRepository;
 
 @Component
-@Profile("test")
+//@Profile("test")
 public class ExampleLoadingRunner implements CommandLineRunner {
 
     @Autowired

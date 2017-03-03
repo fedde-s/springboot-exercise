@@ -16,6 +16,8 @@ public class Chromosome implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String sequence;
+    //@OneToOne(mappedBy="genome", fetch=FetchType.EAGER)
+    //private Cell genomeOf;
 
     @SuppressWarnings("unused")
     private Chromosome() {

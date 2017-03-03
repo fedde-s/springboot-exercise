@@ -2,10 +2,14 @@ package nl.thehyve.fedde.springcourse.model;
 
 import java.awt.Color;
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -18,6 +22,9 @@ public class Cell implements Serializable {
     private long id;
     @OneToOne
     private Chromosome genome;
+    // fetch eagerly, to have the elements at the ready when generating JSON for a cell
+    @ManyToMany(fetch=FetchType.EAGER)
+    private List<Chromosome> plasmids;
     private Color color;
     private String name;
 
@@ -57,6 +64,10 @@ public class Cell implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Chromosome[] getPlasmids() {
+        return this.plasmids.toArray(new Chromosome[] {});
     }
 
 }
