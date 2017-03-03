@@ -13,7 +13,7 @@ import nl.thehyve.fedde.springcourse.persistence.CellRepository;
 import nl.thehyve.fedde.springcourse.persistence.ChromosomeRepository;
 
 @Component
-//@Profile("test")
+@Profile("default")
 public class ExampleLoadingRunner implements CommandLineRunner {
 
     @Autowired
@@ -28,10 +28,13 @@ public class ExampleLoadingRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Chromosome chromosome1Hap1 = new Chromosome("ACGT");
         Chromosome chromosome1Hap2 = new Chromosome("AGGT");
+        Chromosome plasmid1 = new Chromosome("TCATAAG");
         chromRepository.save(chromosome1Hap1);
         chromRepository.save(chromosome1Hap2);
 
         Cell first = new Cell(chromosome1Hap1, Color.ORANGE);
+        first.addPlasmid(plasmid1);
+        first.addPlasmid(plasmid1);
         cellRepository.save(first);
 
         Cell second = new Cell(chromosome1Hap1, Color.CYAN);
